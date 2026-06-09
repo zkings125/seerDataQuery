@@ -1,0 +1,18 @@
+{
+  "mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "",
+    "charset": "utf8mb4",
+    "database": "seerNew"
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 5000,
+    "open_browser": true
+  },
+  "account": {
+    "id": ""
+  }
+}
