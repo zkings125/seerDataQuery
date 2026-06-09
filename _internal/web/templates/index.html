@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赛尔号数据查询</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>赛尔号数据查询</h1>
+      <p class="subtitle">测试连接、更新数据、查询个人数据与图鉴</p>
+    </header>
+
+    <section class="db-panel">
+      <div class="db-panel-header">
+        <div class="db-status">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="dbStatusText"></span>
+        </div>
+        <div class="db-actions">
+          <button id="testDbBtn" class="secondary">测试连接</button>
+          <button id="updateDbBtn">更新数据库</button>
+        </div>
+      </div>
+      <div class="db-counts" id="dbCounts"></div>
+      <pre class="test-result-log hidden" id="testResultLog"></pre>
+      <pre class="update-log hidden" id="updateLog"></pre>
+    </section>
+
+    <section class="query-panel">
+      <h2 class="query-panel-title">数据查询</h2>
+      <div class="query-steps">
+        <label class="query-field">
+          <span class="query-step">1. 数据分类</span>
+          <select id="categorySelect"></select>
+        </label>
+        <label class="query-field">
+          <span class="query-step">2. 查询类型</span>
+          <select id="tableSelect"></select>
+        </label>
+        <label class="query-field hidden" id="itemTypeField">
+          <span class="query-step" id="itemTypeStepLabel">3. 道具分类</span>
+          <select id="itemTypeSelect"></select>
+        </label>
+        <div class="query-field query-field-wide">
+          <span class="query-step">4. 关键词（可选）</span>
+          <div class="search-box">
+            <input type="text" id="searchInput" placeholder="请先选择查询类型" autocomplete="off" disabled>
+            <button id="browseBtn" class="secondary" disabled>查看全部</button>
+            <button id="searchBtn" disabled>搜索</button>
+            <button id="resetBtn" class="secondary" disabled>清空关键词</button>
+          </div>
+        </div>
+      </div>
+      <p class="query-summary" id="querySummary">请按顺序选择分类和类型，再查看或搜索数据</p>
+    </section>
+
+    <section class="status-bar">
+      <span id="statusText">等待查询</span>
+      <label class="page-size">
+        每页
+        <select id="pageSize">
+          <option value="20">20</option>
+          <option value="50" selected>50</option>
+          <option value="100">100</option>
+        </select>
+        条
+      </label>
+    </section>
+
+    <div class="table-wrap">
+      <table>
+        <thead id="tableHead"></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <section class="pagination">
+      <button id="prevBtn" class="secondary">上一页</button>
+      <span id="pageInfo">第 1 / 1 页</span>
+      <button id="nextBtn" class="secondary">下一页</button>
+      <label class="page-jump">
+        跳至
+        <input type="number" id="pageJumpInput" min="1" value="1">
+        页
+        <button id="pageJumpBtn" class="secondary">跳转</button>
+      </label>
+    </section>
+  </div>
+
+  <script src="/static/app.js?v=13"></script>
+</body>
+</html>
